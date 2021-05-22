@@ -1,0 +1,30 @@
+.home-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.all-boards {
+    margin: 40px 16px 0;
+    width: 100%;
+    max-width: 825px;
+    position: sticky;
+}
+
+.workspace-title {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.boards-section-item{
+    margin: 2px;
+    border-radius: 4px;
+    border: none;
+    font-size: 14px;
+    height: 27px;
+}
+
+.boards-section-item:hover {
+    background: rgb(190, 190, 190);
+}

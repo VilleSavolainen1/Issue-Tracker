@@ -1,0 +1,38 @@
+.navbar {
+    background-color: #001d2e;
+    width: 100%;
+}
+
+.navbutton {
+    margin: 3px;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    background-color: #026AA7;
+    border: #026AA7;
+    border-radius: 4px;
+}
+
+.plus {
+    height: 15px;
+}
+
+.useractions {
+    color: white;
+    font-size: 16px;
+}
+
+.userbutton {
+    color: #026AA7;
+    font-weight: 550;
+}
+
+#dropdown-basic-button {
+    font-weight: 600;
+    background-color: #026AA7;
+    border: #026AA7;
+}
+
+#dropdown-basic-button:hover {
+    background-color: rgba(63, 98, 253, 0.712);
+}

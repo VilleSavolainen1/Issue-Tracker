@@ -1,0 +1,45 @@
+.signin-container {
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.signin {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.signinform{
+    width: 100%;
+    align-items: center;
+}
+
+.formrow {
+    margin: 0 auto;
+    padding: 2px;
+    text-align: center;
+}
+
+.form-control {
+    width: 200px;
+    font-size: 18px;
+    box-shadow: none;
+    padding: 5px;
+    text-align: center;
+    border-radius: 3px;
+    border: none;
+}
+
+.form-submit {
+    font-size: 14px;
+    font-weight: 700;
+    height: 40px;
+    width: 200px;
+    cursor: pointer;
+    color: #fff;
+    background-color: #026AA7;;
+    border: 0;
+    border-radius: 4px;
+}
