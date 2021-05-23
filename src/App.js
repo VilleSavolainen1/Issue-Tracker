@@ -6,16 +6,18 @@ import Register from './components/register/register';
 import Signin from './components/signin/signin';
 import Projects from './components/projects/projects';
 import Details from './components/details/details';
+import Create from './components/create/create';
 import axios from 'axios';
 
 
 function App() {
 
-  const [route, setRoute] = useState('home');
+  const [route, setRoute] = useState('signin');
   const [user, setUser] = useState(null);
   const [error, setError] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [creatingNewProject, setCreatingNewProject] = useState(false)
 
 
 
@@ -50,27 +52,38 @@ function App() {
 
   return (
     <div className="App">
+      {route === 'register' || route === 'signin' ?
+        <div className="title">
+          <h1>Issue Tracker</h1>
+        </div>
+        : null}
+      {route === 'register' ? <Register setRoute={setRoute} setUser={setUser} /> : null}
+      {route === 'signin' ? <Signin username={username}
+        password={password}
+        setUsername={setUsername}
+        setPassword={setPassword}
+        signIn={signIn}
+        error={error}
+        setError={setError}
+        setUser={setUser}
+        setRoute={setRoute} /> : null}
       {user !== null ?
         <div>
           <Nav route={route}
             setRoute={setRoute}
             user={user}
-            setUser={setUser} />
+            setUser={setUser}
+            setError={setError}
+            setCreatingNewProject={setCreatingNewProject} />
           {route === 'home' ?
             <Home setRoute={setRoute} /> : null}
           {route === 'projects' ?
             <Projects setRoute={setRoute} /> : null}
           {route === 'details' ?
             <Details /> : null}
-        </div> :
-        <Signin username={username}
-          password={password}
-          setUsername={setUsername}
-          setPassword={setPassword}
-          signIn={signIn}
-          error={error}
-          setError={setError} />
-
+          {creatingNewProject ?
+            <Create setCreatingNewProject={setCreatingNewProject} /> : null}
+        </div> : null
       }
     </div>
   );

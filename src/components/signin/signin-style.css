@@ -3,17 +3,35 @@
     align-items: center;
     margin: 0 auto;
     text-align: center;
+    width: 400px;
+    display: block;
+    margin-top: 55px
 }
 
 .signin {
-    width: 100%;
     justify-content: center;
     align-items: center;
+    display: flex;
+    flex-direction: column;
+    border-radius: 6px;
+    box-shadow: rgba(0,0,0,0.1) 0 0 10px;
+    background-color: #FFFFFF;
+    padding: 60px 40px;
+    margin: 0 auto;
+}
+
+.signintitle h1 {
+    color: #5E6C84;
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 18px;
 }
 
 .signinform{
-    width: 100%;
+    width: 90%;
     align-items: center;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .formrow {
@@ -23,23 +41,44 @@
 }
 
 .form-control {
-    width: 200px;
-    font-size: 18px;
+    font-size: 16px;
     box-shadow: none;
     padding: 5px;
     text-align: center;
     border-radius: 3px;
-    border: none;
+    border: 1px solid rgb(207, 207, 207);
 }
 
 .form-submit {
     font-size: 14px;
     font-weight: 700;
     height: 40px;
-    width: 200px;
+    width: 100%;
     cursor: pointer;
     color: #fff;
-    background-color: #026AA7;;
     border: 0;
     border-radius: 4px;
+    background-image: linear-gradient(#2d8cec,#16b);
+}
+
+.form-submit:hover {
+    background-image: linear-gradient(#1f64a8,rgb(8, 54, 100));
+}
+
+.error {
+    color: red;
+}
+
+.demouser {
+    color: #026AA7;
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+.demouser:hover {
+    cursor: pointer;
+    color: blue;
 }

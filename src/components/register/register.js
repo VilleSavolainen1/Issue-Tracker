@@ -15,17 +15,17 @@ const Register = ({ setRoute, setUser }) => {
         e.preventDefault();
         if (passw === confirmpassword && usern.length > 0) {
             await axios.post('/register', { username: usern, password: passw })
-            .then(res => {
-                setUser(usern)
-                setRoute('/home');
-            })
-            .catch(()=> {
-                setUsername('')
-                setPassword('')
-                setConfirmpassword('')
-                setEmail('')
-                setError("Käyttäjänimi on varattu!")
-            })
+                .then(res => {
+                    setUser(usern)
+                    setRoute('/home');
+                })
+                .catch(() => {
+                    setUsername('')
+                    setPassword('')
+                    setConfirmpassword('')
+                    setEmail('')
+                    setError("Käyttäjänimi on varattu!")
+                })
         } else {
             setError('Täytä puuttuvat tiedot!');
         }
@@ -48,26 +48,31 @@ const Register = ({ setRoute, setUser }) => {
 
 
     return (
-        <div className="register">
-            <div className="signintitle">
-                Rekisteröidy
-            </div>
-            <div className="signinform">
-                <form onSubmit={onSubmit}>
-                    <dl className="formrow">
-                        <input className="form-control" placeholder="Käyttäjänimi" name="username" value={usern} onChange={onUsernameChange}></input>
-                    </dl>
-                    <dl>
-                        <input className="form-control" placeholder="Salasana" type="password" name="password" value={passw} autoComplete="new-password" onChange={onPasswordChange}></input>
-                    </dl>
-                    <dl>
-                        <input className="form-control" placeholder="Salasana uudelleen" type="password" value={confirmpassword} onChange={confirmPassword}></input>
-                    </dl>
-                    <dl>
-                        <input className="form-submit" type="submit" value="Rekisteröidy"></input>
-                    </dl>
-                    <p>{error}</p>
-                </form>
+        <div className="signin-container">
+            <div className="register">
+                <div className="registertitle">
+                    <h1>Register</h1>
+                </div>
+                <div className="registerform">
+                    <form onSubmit={onSubmit}>
+                        <dl className="formrow">
+                            <input className="form-control" placeholder="Username" name="username" value={usern} onChange={onUsernameChange}></input>
+                        </dl>
+                        <dl className="formrow">
+                            <input className="form-control" placeholder="Password" type="password" name="password" value={passw} autoComplete="new-password" onChange={onPasswordChange}></input>
+                        </dl>
+                        <dl className="formrow">
+                            <input className="form-control" placeholder="Confirm password" type="password" value={confirmpassword} onChange={confirmPassword}></input>
+                        </dl>
+                        <dl className="formrow">
+                            <input className="form-submit" type="submit" value="Register"></input>
+                        </dl>
+                        <p>{error}</p>
+                    </form>
+                    <hr></hr>
+                </div>
+                <p>Already have an account?</p>
+                <p className="demouser" onClick={() => setRoute('signin')} >Sign in</p>
             </div>
         </div>
     )

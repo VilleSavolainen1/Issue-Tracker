@@ -1,0 +1,122 @@
+.popup-box {
+    position: fixed;
+    background: #00000050;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+  }
+   
+  .box {
+    position: relative;
+    width: 25%;
+    margin: 0 auto;
+    height: auto;
+    max-height: 70vh;
+    margin-top: calc(100vh - 85vh - 20px);
+    background: #fff;
+    border-radius: 6px;
+    padding: 20px;
+    border: 1px solid #999;
+    overflow: auto;
+  }
+   
+  .close-icon {
+    content: 'x';
+    cursor: pointer;
+    position: fixed;
+    right: calc(38% - 30px);
+    top: calc(100vh - 85vh - 33px);
+    background: #ededed;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    line-height: 20px;
+    text-align: center;
+    border: 1px solid #999;
+    font-size: 20px;
+  }
+
+  .create-project-form {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 0 24px;
+    overflow: auto;
+    text-align: center;
+    align-items: center;
+    z-index: 3;
+    margin: 20px auto 16px;
+  }
+
+  .create-project-title {
+    color: #000;
+    font-weight: 600;
+    font-size: 24px;
+    margin-bottom: 18px;
+  }
+
+  .create-project-info {
+    font-size: 18px;
+    color: #6B778C;
+  }
+
+  .project-info {
+    margin-top: 24px;
+    color: #091E42;
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  .project-input {
+    width: 350px;
+    outline: none;
+    border: none;
+    box-shadow: inset 0 0 0 2px #dfe1e6;
+    background-color: #fafbfc;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    border-radius: 3px;
+    display: block;
+    line-height: 20px;
+    margin-bottom: 12px;
+    padding: 8px 12px;
+    transition-property: background-color,border-color,box-shadow;
+    transition-duration: 85ms;
+    transition-timing-function: ease;
+  }
+
+  .project-description {
+    outline: none;
+    border: none;
+    box-shadow: inset 0 0 0 2px #dfe1e6;
+    background-color: #fafbfc;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    border-radius: 3px;
+    display: block;
+    line-height: 20px;
+    margin-bottom: 12px;
+    padding: 8px 12px;
+    transition-property: background-color,border-color,box-shadow;
+    transition-duration: 85ms;
+    transition-timing-function: ease;
+    width: 350px;
+    height: 120px;
+  }
+
+  .project-submit {
+    font-size: 14px;
+    font-weight: 700;
+    height: 40px;
+    width: 350px;
+    cursor: pointer;
+    color: #fff;
+    border: 0;
+    border-radius: 4px;
+    background-image: linear-gradient(#2d8cec,#16b);
+  }
+
+  .project-submit:hover {
+    background-image: linear-gradient(#1f64a8,rgb(8, 54, 100));
+  }
