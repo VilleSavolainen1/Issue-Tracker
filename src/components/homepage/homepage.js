@@ -6,7 +6,7 @@ const Home = ({setRoute}) => {
     return (
         <div className="home-container">
             <div className="all-boards">
-                <h3 className="workspace-title">Workspaces</h3>
+                <h3 className="workspace-title">System dashboard</h3>
                 <div className="boards-section">
                     <div className="boards-section-header">
                         <div className="boards-section-options">

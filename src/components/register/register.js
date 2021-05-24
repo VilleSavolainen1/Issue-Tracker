@@ -6,7 +6,6 @@ import './register-style.css';
 const Register = ({ setRoute, setUser }) => {
     const [usern, setUsername] = useState('');
     const [passw, setPassword] = useState();
-    const [email, setEmail] = useState();
     const [confirmpassword, setConfirmpassword] = useState();
     const [error, setError] = useState('');
 
@@ -23,7 +22,6 @@ const Register = ({ setRoute, setUser }) => {
                     setUsername('')
                     setPassword('')
                     setConfirmpassword('')
-                    setEmail('')
                     setError("Käyttäjänimi on varattu!")
                 })
         } else {

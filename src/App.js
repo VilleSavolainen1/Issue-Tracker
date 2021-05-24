@@ -18,6 +18,15 @@ function App() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [creatingNewProject, setCreatingNewProject] = useState(false)
+  const [allProjects, setAllProjects] = useState([]);
+
+
+  useEffect(() => {
+    axios.get('/projects')
+      .then(project => {
+        allProjects.push(project.data)
+      })
+  }, [])
 
 
 
@@ -78,11 +87,11 @@ function App() {
           {route === 'home' ?
             <Home setRoute={setRoute} /> : null}
           {route === 'projects' ?
-            <Projects setRoute={setRoute} /> : null}
+            <Projects setRoute={setRoute} allProjects={allProjects} /> : null}
           {route === 'details' ?
             <Details /> : null}
           {creatingNewProject ?
-            <Create setCreatingNewProject={setCreatingNewProject} /> : null}
+            <Create setCreatingNewProject={setCreatingNewProject} user={user} /> : null}
         </div> : null
       }
     </div>
