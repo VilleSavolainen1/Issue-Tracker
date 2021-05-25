@@ -19,6 +19,9 @@ function App() {
   const [password, setPassword] = useState('');
   const [creatingNewProject, setCreatingNewProject] = useState(false)
   const [allProjects, setAllProjects] = useState([]);
+  const [selectedProject, setSelectedProject] = useState(null);
+    
+    
 
 
   useEffect(() => {
@@ -77,7 +80,7 @@ function App() {
         setUser={setUser}
         setRoute={setRoute} /> : null}
       {user !== null ?
-        <div>
+        <div className="content">
           <Nav route={route}
             setRoute={setRoute}
             user={user}
@@ -87,9 +90,11 @@ function App() {
           {route === 'home' ?
             <Home setRoute={setRoute} /> : null}
           {route === 'projects' ?
-            <Projects setRoute={setRoute} allProjects={allProjects} /> : null}
+            <Projects setRoute={setRoute}
+              allProjects={allProjects}
+              setSelectedProject={setSelectedProject} /> : null}
           {route === 'details' ?
-            <Details /> : null}
+            <Details selectedProject={selectedProject}/> : null}
           {creatingNewProject ?
             <Create setCreatingNewProject={setCreatingNewProject} user={user} /> : null}
         </div> : null

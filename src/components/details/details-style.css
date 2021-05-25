@@ -1,0 +1,126 @@
+.main-content {
+    display: flex;
+    flex-direction: column;
+    margin-right: 0;
+    position: relative;
+    transition: margin .1s ease-in;
+    height: 100%;
+}
+
+.project-header {
+    height: auto;
+    padding: 8px 4px 4px 8px;
+    position: relative;
+    border-bottom: 1px solid rgb(170, 170, 170);
+}
+
+.project-header h1 {
+    color: #172b4d;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 32px;
+    padding: 0 12px;
+}
+
+.boards-canvas {
+    position: relative;
+    flex-grow: 1;
+    height: 100%;
+}
+
+.board {
+    user-select: none;
+    white-space: nowrap;
+    margin-bottom: 8px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 8px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.list-wrapper {
+    background-color: rgba(0,0,0,.05);
+    width: 272px;
+    margin: 8px 8px;
+    margin-right: 4px;
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: top;
+    white-space: nowrap;
+    border-radius: 3px;
+    height: auto;
+    min-height: 32px;
+    padding: 4px;
+    justify-content: center;
+}
+
+.list-wrapper:hover {
+    background-color: rgba(0,0,0,.10);
+}
+
+.add-list {
+    color: #172b4d;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Noto Sans,Ubuntu,Droid Sans,Helvetica Neue,sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.add-list a {
+    text-decoration: none;
+}
+
+.placeholder {
+    padding: 6px 8px;
+    transition: color 85ms ease-in;
+    text-decoration: none;
+}
+
+.icon {
+    height: 20px;
+    font-size: 16px;
+    line-height: 20px;
+    width: 20px;
+    padding: 6px 8px;
+}
+
+.addingListInput {
+    display: inline-block;
+}
+
+.input {
+    outline: none;
+    border: none;
+    box-shadow: inset 0 0 0 2px #556491;
+    background-color: #fafbfc;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    border-radius: 3px;
+    display: block;
+    line-height: 20px;
+    margin-bottom: 12px;
+    padding: 6px 12px;
+}
+
+.addbutton {
+    margin: 3px;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    background-color: #026AA7;
+    border: #026AA7;
+    border-radius: 4px;
+}
+
+.deleteimage {
+    height: 20px;
+    margin-left: 10px;
+    margin-right: 5px;
+    cursor: pointer;
+}

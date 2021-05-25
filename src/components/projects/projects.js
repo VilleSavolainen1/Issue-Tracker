@@ -3,7 +3,7 @@ import { Table } from 'react-bootstrap'
 import './projects-style.css';
 
 
-const Projects = ({ setRoute, allProjects }) => {
+const Projects = ({ setRoute, allProjects, setSelectedProject }) => {
 
     const renderProjects = allProjects[0].map(project => {
         const ProjectStatus = () => {
@@ -18,7 +18,7 @@ const Projects = ({ setRoute, allProjects }) => {
             }
         }
         return (
-            <tr key={project.id} className="tablerow" onClick={() => setRoute('details')} >
+            <tr key={project.id} className="tablerow" onClick={() => { setRoute('details'); setSelectedProject(project)}} >
                 <td>{project.name}</td>
                 <td>{project.type}</td>
                 <td>{project.description}</td>
