@@ -5,15 +5,15 @@ import './projects-style.css';
 
 const Projects = ({ setRoute, allProjects, setSelectedProject }) => {
 
-    const renderProjects = allProjects[0].map(project => {
+    const renderProjects = allProjects.map(project => {
         const ProjectStatus = () => {
             if (project.status === false) {
                 return (
-                    <span style={{ color: '#E1CA36' }}>In progress</span>
+                    <span style={{ color: '#E1CA36', border: '1px solid #E1CA36', borderRadius: '3px' }}><span style={{padding: '4px'}}>In progress</span></span>
                 )
             } else {
                 return (
-                    <span style={{ color: '#17DF14' }}>Done</span>
+                    <span style={{ color: '#17DF14', border: '1px solid #17DF14', borderRadius: '3px'  }}><span style={{padding: '4px'}}>Done</span></span>
                 )
             }
         }

@@ -3,7 +3,7 @@ import './create-style.css';
 import axios from 'axios';
 
 
-const Create = ({ setCreatingNewProject, user }) => {
+const Create = ({ setCreatingNewProject, user, setProjectCreated }) => {
 
     const [projectName, setProjectName] = useState('');
     const [projectType, setProjectType] = useState('');
@@ -31,6 +31,7 @@ const Create = ({ setCreatingNewProject, user }) => {
             await axios.post('/create', { name: projectName, type: projectType, description: projectDescription, assignee: user })
                 .then(res => {
                     setCreatingNewProject(false)
+                    setProjectCreated(false)
                 })
                 .catch(() => {
                     setError("Error!")
@@ -44,7 +45,7 @@ const Create = ({ setCreatingNewProject, user }) => {
     return (
         <div className="popup-box">
             <div className="box">
-                <span className="close-icon" onClick={() => setCreatingNewProject(false)} >x</span>
+                <span className="close-icon" onClick={() => setProjectCreated(false)} >x</span>
                 <div className="create-project-form">
                     <h1 className="create-project-title">Create a new project</h1>
                     <span className="create-project-info">Boost your productivity.</span>

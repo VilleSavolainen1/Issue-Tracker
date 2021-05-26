@@ -18,18 +18,30 @@ function App() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [creatingNewProject, setCreatingNewProject] = useState(false)
+  const [projectCreated, setProjectCreated] = useState(false);
   const [allProjects, setAllProjects] = useState([]);
   const [selectedProject, setSelectedProject] = useState(null);
-    
-    
+  const [lists, setLists] = useState([])
+  const [listAdded, setListAdded] = useState(false);
+
+
+  useEffect(() => {
+    axios.get('/list')
+      .then(list => {
+        setLists(list.data)
+        setListAdded(false)
+      })
+  }, [listAdded])
+
 
 
   useEffect(() => {
     axios.get('/projects')
       .then(project => {
-        allProjects.push(project.data)
+        setAllProjects(project.data)
+        setCreatingNewProject(false)
       })
-  }, [])
+  }, [creatingNewProject, projectCreated])
 
 
 
@@ -86,7 +98,9 @@ function App() {
             user={user}
             setUser={setUser}
             setError={setError}
-            setCreatingNewProject={setCreatingNewProject} />
+            setCreatingNewProject={setCreatingNewProject}
+            setProjectCreated={setProjectCreated}
+            projectCreated={projectCreated} />
           {route === 'home' ?
             <Home setRoute={setRoute} /> : null}
           {route === 'projects' ?
@@ -94,9 +108,14 @@ function App() {
               allProjects={allProjects}
               setSelectedProject={setSelectedProject} /> : null}
           {route === 'details' ?
-            <Details selectedProject={selectedProject}/> : null}
-          {creatingNewProject ?
-            <Create setCreatingNewProject={setCreatingNewProject} user={user} /> : null}
+            <Details selectedProject={selectedProject}
+              lists={lists}
+              setListAdded={setListAdded} /> : null}
+          {projectCreated ?
+            <Create setCreatingNewProject={setCreatingNewProject}
+              projectCreated={projectCreated}
+              setProjectCreated={setProjectCreated}
+              user={user} /> : null}
         </div> : null
       }
     </div>

@@ -3,7 +3,7 @@ import { Navbar, Form, Button, Dropdown, DropdownButton } from 'react-bootstrap'
 import './style.css'
 
 
-const Nav = ({ setRoute, user, setUser, setError, setCreatingNewProject}) => {
+const Nav = ({ setRoute, user, setUser, setError, setCreatingNewProject, setProjectCreated}) => {
 
 
     const exit = () => {
@@ -21,8 +21,7 @@ const Nav = ({ setRoute, user, setUser, setError, setCreatingNewProject}) => {
                     <Button className="navbutton" onClick={() => setRoute('home')} >Home</Button>
                     <Button className="navbutton" onClick={() => setRoute('projects')} >Projects</Button>
                     <DropdownButton className="navbutton" id="dropdown-basic-button" title="Create">
-                        <Dropdown.Item onClick={() => setCreatingNewProject(true)} >Create project</Dropdown.Item>
-                        <Dropdown.Item>Create ticket</Dropdown.Item>
+                        <Dropdown.Item onClick={() => {setCreatingNewProject(true); setProjectCreated(true)}} >Create new project</Dropdown.Item>
                     </DropdownButton>
                     <DropdownButton className="navbutton" id="dropdown-basic-button" title="Manage">
                         <Dropdown.Item>Manage Role Assignment</Dropdown.Item>

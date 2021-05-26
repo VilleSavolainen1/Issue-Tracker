@@ -26,6 +26,7 @@
     position: relative;
     flex-grow: 1;
     height: 100%;
+    max-width: 100%;
 }
 
 .board {
@@ -40,6 +41,7 @@
     right: 0;
     bottom: 0;
     left: 0;
+    width: 100%;
 }
 
 .list-wrapper {
@@ -56,7 +58,36 @@
     min-height: 32px;
     padding: 4px;
     justify-content: center;
+    cursor: pointer;
 }
+
+.ticket-wrapper {
+    box-shadow: rgba(0,0,0,0.3) 0 0 10px;
+    width: 272px;
+    margin: 8px 8px;
+    margin-right: 4px;
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: top;
+    white-space: nowrap;
+    border-radius: 3px;
+    height: auto;
+    min-height: 32px;
+    padding: 4px;
+    justify-content: center;
+}
+
+
+.list-header {
+    flex: 0 0 auto;
+    padding: 5px 5px;
+    padding-right: 8px;
+    position: relative;
+    list-style: none;
+    font-weight: 600;
+}
+
+
 
 .list-wrapper:hover {
     background-color: rgba(0,0,0,.10);
@@ -70,6 +101,22 @@
     font-weight: 400;
     text-decoration: none;
     cursor: pointer;
+    margin: 4px 4px;
+}
+
+.add-card {
+    color: #172b4d;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Noto Sans,Ubuntu,Droid Sans,Helvetica Neue,sans-serif;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+    margin: 12px;
+    height: 30px;
+    border-radius: 3px;
+}
+
+.add-card:hover {
+    background-color: rgba(0,0,0,.10);
 }
 
 .add-list a {
@@ -97,7 +144,7 @@
 .input {
     outline: none;
     border: none;
-    box-shadow: inset 0 0 0 2px #556491;
+    box-shadow: 1px 1px 1px 1px rgba(27, 58, 112, 0.25);
     background-color: #fafbfc;
     box-sizing: border-box;
     -webkit-appearance: none;
@@ -105,11 +152,12 @@
     display: block;
     line-height: 20px;
     margin-bottom: 12px;
+    margin-left: 6px;
     padding: 6px 12px;
 }
 
 .addbutton {
-    margin: 3px;
+    margin: 3px 0px 3px 6px;
     justify-content: center;
     align-items: center;
     font-weight: 600;
