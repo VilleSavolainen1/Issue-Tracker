@@ -26,6 +26,16 @@ function App() {
 
 
   useEffect(() => {
+    const loggedUser = window.localStorage.getItem("loggeduser");
+    if (loggedUser) {
+      const user = loggedUser;
+      setUser(user);
+    }
+  }, []);
+
+
+
+  useEffect(() => {
     axios.get('/list')
       .then(list => {
         setLists(list.data)
@@ -83,6 +93,7 @@ function App() {
         : null}
       {route === 'register' ? <Register setRoute={setRoute} setUser={setUser} /> : null}
       {route === 'signin' ? <Signin username={username}
+        user={user}
         password={password}
         setUsername={setUsername}
         setPassword={setPassword}

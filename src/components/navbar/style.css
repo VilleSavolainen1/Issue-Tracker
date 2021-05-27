@@ -1,28 +1,34 @@
+.form-inline {
+    margin-left: 6px;
+}
+
 .navbar {
     background-color: #001d2e;
     width: 100%;
     padding: 3px 0px 2px 0px;
 }
 
-.navbutton {
-    margin: 3px;
-    justify-content: center;
-    align-items: center;
-    font-weight: 600;
-    background-image: linear-gradient(#2d8cec,#16b);
-    border: #026AA7;
-    border-radius: 4px;
+.btn {
+    border-radius: 0;
+    outline: none;
 }
 
-.navbutton {
-    margin: 3px;
+
+
+.navbutton{
+    margin: 0;
     justify-content: center;
     align-items: center;
     font-weight: 600;
     background-image: linear-gradient(#2d8cec,#16b);
     border: #026AA7;
-    border-radius: 4px;
+    outline: none;
 }
+
+.navbutton:hover {
+    background-image: linear-gradient(#1f64a8,rgb(8, 54, 100));
+}
+
 
 .plus {
     height: 15px;
@@ -40,10 +46,11 @@
 
 #dropdown-basic-button {
     font-weight: 600;
-    background-color: #026AA7;
+    background-image: linear-gradient(#2d8cec,#16b);
     border: #026AA7;
+    outline: none;
 }
 
 #dropdown-basic-button:hover {
-    background-color: rgba(63, 98, 253, 0.712);
+    background-image: linear-gradient(#1f64a8,rgb(8, 54, 100));
 }

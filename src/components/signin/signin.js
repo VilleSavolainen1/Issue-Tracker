@@ -2,7 +2,7 @@ import React from 'react';
 import './signin-style.css';
 
 
-const Signin = ({ username, password, setUsername, setPassword, signIn, error, setError, setUser, setRoute }) => {
+const Signin = ({ username, password, setUsername, setPassword, signIn, error, setError, setUser, setRoute, user }) => {
 
     const onUsernameChange = (e) => {
         setUsername(e.target.value)
