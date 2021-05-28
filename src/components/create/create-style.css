@@ -120,3 +120,10 @@
   .project-submit:hover {
     background-image: linear-gradient(#1f64a8,rgb(8, 54, 100));
   }
+
+  @media(max-width: 800px){
+    .box {
+      width: 100%;
+      height: 100%;
+    }
+  }

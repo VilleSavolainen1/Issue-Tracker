@@ -50,11 +50,11 @@ const Create = ({ setCreatingNewProject, user, setProjectCreated }) => {
                     <h1 className="create-project-title">Create a new project</h1>
                     <span className="create-project-info">Boost your productivity.</span>
                     <form onSubmit={onSubmit}>
-                        <label className="project-info" for="project-name">Project name</label>
+                        <label className="project-info">Project name</label>
                         <input className="project-input" id="project-name" placeholder="Project 1" value={projectName} onChange={onProjectNameChange}></input>
-                        <label className="project-info" for="project-type">Project type</label>
+                        <label className="project-info">Project type</label>
                         <input className="project-input" id="project-type" placeholder="Marketing" value={projectType} onChange={onProjectTypeChange} ></input>
-                        <label className="project-info" for="project-description">Project description (optional)</label>
+                        <label className="project-info">Project description (optional)</label>
                         <textarea className="project-description" id="project-description" value={projectDescription} onChange={onProjectDescriptionChange} ></textarea>
                         <dl className="confirm-project">
                             <input className="project-submit" type="submit" value="Create project"></input>

@@ -30,6 +30,7 @@ function App() {
     if (loggedUser) {
       const user = loggedUser;
       setUser(user);
+      setRoute('home')
     }
   }, []);
 
@@ -51,7 +52,7 @@ function App() {
         setAllProjects(project.data)
         setCreatingNewProject(false)
       })
-  }, [creatingNewProject, projectCreated])
+  }, [creatingNewProject])
 
 
 
@@ -83,16 +84,15 @@ function App() {
   }
 
 
-
   return (
     <div className="App">
-      {route === 'register' || route === 'signin' ?
+      {user === null ?
         <div className="title">
           <h1>Issue Tracker</h1>
         </div>
         : null}
-      {route === 'register' ? <Register setRoute={setRoute} setUser={setUser} /> : null}
-      {route === 'signin' ? <Signin username={username}
+      {route === 'register' && user === null ? <Register setRoute={setRoute} setUser={setUser} /> : null}
+      {route === 'signin' && user === null ? <Signin username={username}
         user={user}
         password={password}
         setUsername={setUsername}

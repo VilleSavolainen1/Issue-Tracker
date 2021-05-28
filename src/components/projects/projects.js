@@ -9,16 +9,16 @@ const Projects = ({ setRoute, allProjects, setSelectedProject }) => {
         const ProjectStatus = () => {
             if (project.status === false) {
                 return (
-                    <span style={{ color: '#E1CA36', border: '1px solid #E1CA36', borderRadius: '3px' }}><span style={{padding: '4px'}}>In progress</span></span>
+                    <span style={{ color: '#E1CA36', border: '1px solid #E1CA36', borderRadius: '3px' }}><span style={{ padding: '4px' }}>In progress</span></span>
                 )
             } else {
                 return (
-                    <span style={{ color: '#17DF14', border: '1px solid #17DF14', borderRadius: '3px'  }}><span style={{padding: '4px'}}>Done</span></span>
+                    <span style={{ color: '#17DF14', border: '1px solid #17DF14', borderRadius: '3px' }}><span style={{ padding: '4px' }}>Done</span></span>
                 )
             }
         }
         return (
-            <tr key={project.id} className="tablerow" onClick={() => { setRoute('details'); setSelectedProject(project)}} >
+            <tr key={project.id} className="tablerow" onClick={() => { setRoute('details'); setSelectedProject(project) }} >
                 <td>{project.name}</td>
                 <td>{project.type}</td>
                 <td>{project.description}</td>

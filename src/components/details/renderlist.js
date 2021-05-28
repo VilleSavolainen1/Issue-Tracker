@@ -11,7 +11,7 @@ const RenderList = ({ lists, selectedProject }) => {
     const [selectedList, setSelectedList] = useState(null);
 
 
-    const handleTicketChange = (e) => {
+    const handleTicketChange = () => {
         addingTicket ? setAddingTicket(false) : setAddingTicket(true);
     }
 
@@ -23,7 +23,7 @@ const RenderList = ({ lists, selectedProject }) => {
     const renderLists = lists.map(list => {
         if (list.project === selectedProject.name) {
             return (
-                <div className="ticket-wrapper">
+                <div key={list.id} className="ticket-wrapper">
                     <div className="list-header">
                         <li key={list.id}><span>{list.name}</span></li>
                         <hr></hr>
@@ -45,6 +45,7 @@ const RenderList = ({ lists, selectedProject }) => {
                 </div>
             )
         }
+        return null;
     })
 
     return renderLists;

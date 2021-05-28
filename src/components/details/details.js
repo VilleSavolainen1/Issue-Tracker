@@ -11,7 +11,6 @@ const Details = ({ selectedProject, lists, setListAdded }) => {
     const [addingList, setAddingList] = useState(false);
     const [listName, setListName] = useState('');
 
-    console.log(lists)
     const handleListAdding = () => {
         addingList ? setAddingList(false) : setAddingList(true)
         setListName('');
