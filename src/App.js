@@ -22,7 +22,9 @@ function App() {
   const [allProjects, setAllProjects] = useState([]);
   const [selectedProject, setSelectedProject] = useState(null);
   const [lists, setLists] = useState([])
+  const [issues, setIssues] = useState([])
   const [listAdded, setListAdded] = useState(false);
+  const [issueCreated, setIssueCreated] = useState(false);
 
 
   useEffect(() => {
@@ -54,6 +56,14 @@ function App() {
       })
   }, [creatingNewProject])
 
+
+  useEffect(() => {
+    axios.get('/issues')
+    .then(issue => {
+      setIssues(issue.data)
+      setIssueCreated(false)
+    })
+  }, [])
 
 
   function signIn(e) {
@@ -121,7 +131,9 @@ function App() {
           {route === 'details' ?
             <Details selectedProject={selectedProject}
               lists={lists}
-              setListAdded={setListAdded} /> : null}
+              setListAdded={setListAdded}
+              issues={issues}
+              setIssueCreated={setIssueCreated} /> : null}
           {projectCreated ?
             <Create setCreatingNewProject={setCreatingNewProject}
               projectCreated={projectCreated}

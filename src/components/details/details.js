@@ -6,7 +6,7 @@ import { Button } from 'react-bootstrap'
 import RenderList from './renderlist';
 import axios from 'axios';
 
-const Details = ({ selectedProject, lists, setListAdded }) => {
+const Details = ({ selectedProject, lists, setListAdded, issues, setIssueCreated }) => {
 
     const [addingList, setAddingList] = useState(false);
     const [listName, setListName] = useState('');
@@ -43,7 +43,9 @@ const Details = ({ selectedProject, lists, setListAdded }) => {
             <div className="boards-canvas">
                 <div className="board">
                     <RenderList lists={lists}
-                        selectedProject={selectedProject} />
+                        selectedProject={selectedProject}
+                        issues={issues}
+                        setIssueCreated={setIssueCreated} />
                     <div className="list-wrapper">
                         {!addingList ?
                             <p className="add-list" onClick={() => handleListAdding()}>
