@@ -3,9 +3,10 @@ import { Button } from 'react-bootstrap';
 import './details-style.css';
 import Plus from './images/plus.png';
 import Delete from './images/delete.png';
+import Check from './images/check.png';
 import axios from 'axios';
 
-const RenderList = ({ lists, selectedProject, issues, setIssueCreated }) => {
+const RenderList = ({ lists, selectedProject, issues, setIssueCreated, setListAdded }) => {
 
     const [addingTicket, setAddingTicket] = useState(false);
     const [cardName, setCardName] = useState('')
@@ -30,13 +31,32 @@ const RenderList = ({ lists, selectedProject, issues, setIssueCreated }) => {
         if (cardName.length > 0) {
             axios.post('/createissue', { name: cardName, list: list, project: project })
                 .then(res => {
-                    console.log(res)
                     setIssueCreated(true)
                 })
                 .catch(() => {
                     console.log("error")
                 })
         }
+    }
+
+    const deleteIssue = (name, list, project) => {
+        axios.post('/deleteissue', { name: name, list: list, project: project })
+            .then(res => {
+                setIssueCreated(true)
+            })
+            .catch(() => {
+                console.log("error")
+            })
+    }
+
+    const deleteList = (name, project) => {
+        axios.post('/deletelist', {name, project})
+        .then(res => {
+            setListAdded(true)
+        })
+        .catch(() => {
+            console.log("error")
+        })
     }
 
 
@@ -51,15 +71,21 @@ const RenderList = ({ lists, selectedProject, issues, setIssueCreated }) => {
                         </div>
                         {showPopover && selectedList === list.name ?
                             <div className="pop-over">
-                                <span>Delete list</span>
+                                <span style={{ cursor: 'pointer', padding: '4px' }} onClick={() => {deleteList(list.name, list.project); handlePopover()}} >Delete list</span>
+                                <div className="closepopoversection">
+                                    <img className="closepopover" src={Delete} alt="" onClick={() => handlePopover()}></img>
+                                </div>
                             </div> : null}
                         <hr></hr>
                     </div>
                     {issues.map(issue => {
                         if (issue.list === list.name && issue.project === list.project) {
                             return (
-                                <div className="issues">
+                                <div key={issue.id} className="issues">
                                     <p className="issueitem">{issue.name}</p>
+                                    <div className="checkbox">
+                                        <img className="deleteimage" src={Check} alt="" onClick={() => deleteIssue(issue.name, issue.list, issue.project)}></img>
+                                    </div>
                                 </div>
                             )
                         }

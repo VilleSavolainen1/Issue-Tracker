@@ -7,13 +7,39 @@
 .all-boards {
     margin: 40px 45px 0;
     width: 100%;
-    max-width: 825px;
+    max-width: 700px;
     position: sticky;
 }
 
 .workspace-title {
     font-size: 24px;
-    font-weight: 700;
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.introduction {
+    font-weight: 600;
+    color: white;
+    background-color: #026AA7;
+}
+
+.introduction h3 {
+    padding: 3px;
+    font-size: 20px;
+}
+
+.welcome {
+    padding: 5px;
+}
+
+.boards-section {
+    border: 1px solid rgb(197, 197, 197);
+    margin-top: 20px;
+}
+
+.boards-section-options {
+    margin-top: 10px;
+    margin-bottom: 5px;
 }
 
 .boards-section-item{

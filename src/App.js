@@ -59,11 +59,11 @@ function App() {
 
   useEffect(() => {
     axios.get('/issues')
-    .then(issue => {
-      setIssues(issue.data)
-      setIssueCreated(false)
-    })
-  }, [])
+      .then(issue => {
+        setIssues(issue.data)
+        setIssueCreated(false)
+      })
+  }, [issueCreated])
 
 
   function signIn(e) {
