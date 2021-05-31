@@ -6,11 +6,12 @@ import { Button } from 'react-bootstrap'
 import RenderList from './renderlist';
 import axios from 'axios';
 
-const Details = ({ selectedProject, lists, setListAdded, issues, setIssueCreated }) => {
+const Details = ({ allProjects, selectedProject, lists, setListAdded, issues, setIssueCreated, setCreatingNewProject }) => {
 
     const [addingList, setAddingList] = useState(false);
     const [listName, setListName] = useState('');
-    const [updateChange, setUpdateChange] = useState('')
+    const [updateChange, setUpdateChange] = useState(false);
+    const [id, setId] = useState(0);
 
     const handleListAdding = () => {
         addingList ? setAddingList(false) : setAddingList(true)
@@ -39,14 +40,25 @@ const Details = ({ selectedProject, lists, setListAdded, issues, setIssueCreated
         setUpdateChange(e.target.value)
     }
 
+    const onIdChange = (id) => {
+        setId(id)
+    }
+
 
     const updateStatus = (e) => {
         e.preventDefault();
-        console.log(updateChange)
+        axios.post('/updatestatus', { id: id, status: updateChange })
+            .then(res => {
+                setCreatingNewProject(true)
+            })
+            .catch(() => {
+                console.log("error")
+            })
     }
 
     const Status = () => {
-        if (selectedProject.status === false) {
+        let status = allProjects.filter(selected => selected.name === selectedProject.name)
+        if (status[0].status === false) {
             return (
                 <span style={{ color: '#E1CA36', border: '1px solid #E1CA36', borderRadius: '3px' }}><span style={{ padding: '4px' }}>In progress</span></span>
             )
@@ -64,13 +76,13 @@ const Details = ({ selectedProject, lists, setListAdded, issues, setIssueCreated
                 <h1>{selectedProject.name}</h1>
                 <Status />
                 <div className="updateform">
-                    <form onSubmit={updateStatus} style={{height: '43px'}} >
+                    <form onSubmit={updateStatus} style={{ height: '43px' }} >
                         <label style={{ fontWeight: '600', fontSize: '13px', padding: '4px' }} >Change project status:</label>
                         <select name="status" onChange={onUpdateChange}>
-                            <option value="false">In progress</option>
-                            <option value="true">Done</option>
+                            <option value={false}>In progress</option>
+                            <option value={true}>Done</option>
                         </select>
-                        <input className="addbutton" style={{ color: '#fff', fontSize: '14px' }} type="submit" value="Update"></input>
+                        <input className="addbutton" style={{ color: '#fff', fontSize: '14px' }} type="submit" value="Update" onClick={() => onIdChange(selectedProject.id)} ></input>
                     </form>
                 </div>
             </div>

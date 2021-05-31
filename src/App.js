@@ -47,7 +47,6 @@ function App() {
   }, [listAdded])
 
 
-
   useEffect(() => {
     axios.get('/projects')
       .then(project => {
@@ -130,10 +129,12 @@ function App() {
               setSelectedProject={setSelectedProject} /> : null}
           {route === 'details' ?
             <Details selectedProject={selectedProject}
+              allProjects={allProjects}
               lists={lists}
               setListAdded={setListAdded}
               issues={issues}
-              setIssueCreated={setIssueCreated} /> : null}
+              setIssueCreated={setIssueCreated}
+              setCreatingNewProject={setCreatingNewProject} /> : null}
           {projectCreated ?
             <Create setCreatingNewProject={setCreatingNewProject}
               projectCreated={projectCreated}
