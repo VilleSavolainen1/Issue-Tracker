@@ -2,11 +2,24 @@ import React from 'react';
 import './style.css';
 
 
-const Home = ({setRoute}) => {
+const Home = ({ allProjects, user, setRoute, setSelectedProject }) => {
+
+
+    const userProjects = allProjects.map(project => {
+        if (project.assignee === user) {
+            return (
+                <ul style={{ margin: '0' }} key={project.id}>
+                    <li style={{ listStyle: 'none' }} ><span className="projectlink" onClick={() => { setRoute('details'); setSelectedProject(project) }} >{project.name}</span></li>
+                </ul>
+            )
+        }
+        return null;
+    })
+
+
     return (
         <div className="home-container">
             <div className="all-boards">
-                <h3 className="workspace-title">System dashboard</h3>
                 <div className="boards-section">
                     <div className="boards-section-header">
                         <div className="introduction">
@@ -21,6 +34,19 @@ const Home = ({setRoute}) => {
                         <div className="boards-section-options">
                             <button className="boards-section-item">Members</button>
                             <button className="boards-section-item">Settings</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="all-boards">
+                <div className="boards-section">
+                    <div className="boards-section-header">
+                        <div className="introduction">
+                            <h3>My projects</h3>
+                        </div>
+                        <div className="welcome">
+                            <h5>Projects assigned to you</h5>
+                            {userProjects}
                         </div>
                     </div>
                 </div>

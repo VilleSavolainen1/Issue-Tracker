@@ -7,6 +7,7 @@ import Signin from './components/signin/signin';
 import Projects from './components/projects/projects';
 import Details from './components/details/details';
 import Create from './components/create/create';
+import Profile from './components/profile/profile'
 import axios from 'axios';
 
 
@@ -122,7 +123,10 @@ function App() {
             setProjectCreated={setProjectCreated}
             projectCreated={projectCreated} />
           {route === 'home' ?
-            <Home setRoute={setRoute} /> : null}
+            <Home setRoute={setRoute}
+              allProjects={allProjects}
+              user={user}
+              setSelectedProject={setSelectedProject} /> : null}
           {route === 'projects' ?
             <Projects setRoute={setRoute}
               allProjects={allProjects}
@@ -134,7 +138,11 @@ function App() {
               setListAdded={setListAdded}
               issues={issues}
               setIssueCreated={setIssueCreated}
-              setCreatingNewProject={setCreatingNewProject} /> : null}
+              setCreatingNewProject={setCreatingNewProject}
+              setRoute={setRoute} /> : null}
+          {route === 'profile' ?
+            <Profile user={user} /> : null
+          }
           {projectCreated ?
             <Create setCreatingNewProject={setCreatingNewProject}
               projectCreated={projectCreated}

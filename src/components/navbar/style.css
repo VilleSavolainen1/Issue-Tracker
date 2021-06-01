@@ -13,7 +13,12 @@
     outline: none;
 }
 
-
+.navbartitle {
+    color: rgb(223, 223, 223);
+    text-align: center;
+    margin-right: 245px;
+    opacity: 0.2;
+}
 
 .navbutton{
     margin: 2px;

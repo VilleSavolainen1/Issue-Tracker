@@ -1,11 +1,28 @@
-import React from 'react';
-import { Table } from 'react-bootstrap'
+import React, { useState } from 'react';
+import { Table } from 'react-bootstrap';
 import './projects-style.css';
+import Search from '../details/images/search.png';
+
 
 
 const Projects = ({ setRoute, allProjects, setSelectedProject }) => {
 
-    const renderProjects = allProjects.map(project => {
+    const [findProject, setFindProject] = useState(allProjects)
+
+
+    const filter = (e) => {
+        const search = e.target.value;
+        if (search !== '') {
+            const results = allProjects.filter(project => {
+                return project.name.toLowerCase().startsWith(search.toLowerCase());
+            });
+            setFindProject(results);
+        } else {
+            setFindProject(allProjects);
+        }
+    }
+
+    const renderProjects = findProject.map(project => {
         const ProjectStatus = () => {
             if (project.status === false) {
                 return (
@@ -33,6 +50,10 @@ const Projects = ({ setRoute, allProjects, setSelectedProject }) => {
         <div className="projects-container">
             <div className="all-projects">
                 <h3 className="projects-title">All projects</h3>
+                <div className="search">
+                    <input type="search" className="input" placeholder="Filter" onChange={filter} />
+                    <img src={Search} alt="" style={{ height: '24px', marginLeft: '-27px', marginTop: '4px' }} ></img>
+                </div>
                 <div className="projects-section">
                     <div className="projects-section-header">
                         <div className="projects-section-options">

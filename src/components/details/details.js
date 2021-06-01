@@ -4,9 +4,10 @@ import Plus from './images/plus.png'
 import Delete from './images/delete.png'
 import { Button } from 'react-bootstrap'
 import RenderList from './renderlist';
+import Trash from '../details/images/trash.png';
 import axios from 'axios';
 
-const Details = ({ allProjects, selectedProject, lists, setListAdded, issues, setIssueCreated, setCreatingNewProject }) => {
+const Details = ({ allProjects, selectedProject, lists, setListAdded, issues, setIssueCreated, setCreatingNewProject, setRoute }) => {
 
     const [addingList, setAddingList] = useState(false);
     const [listName, setListName] = useState('');
@@ -56,6 +57,20 @@ const Details = ({ allProjects, selectedProject, lists, setListAdded, issues, se
             })
     }
 
+    function deleteProject(name){
+        let ask = window.confirm("Delete this project?")
+        if(ask){
+            axios.post('/deleteproject', {name: name})
+        .then(res => {
+            setCreatingNewProject(true)
+            setRoute('projects')
+        })
+        .catch(() => {
+            console.log("error")
+        })
+        }
+    }
+
     const Status = () => {
         let status = allProjects.filter(selected => selected.name === selectedProject.name)
         if (status[0].status === false) {
@@ -85,6 +100,7 @@ const Details = ({ allProjects, selectedProject, lists, setListAdded, issues, se
                         <input className="addbutton" style={{ color: '#fff', fontSize: '14px' }} type="submit" value="Update" onClick={() => onIdChange(selectedProject.id)} ></input>
                     </form>
                 </div>
+                <img className="trash" src={Trash} alt="" onClick={() => deleteProject(selectedProject.name)} ></img>
             </div>
             <div className="boards-canvas">
                 <div className="board">

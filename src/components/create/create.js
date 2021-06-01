@@ -30,7 +30,7 @@ const Create = ({ setCreatingNewProject, user, setProjectCreated }) => {
         if (projectName.length > 0 && projectType.length > 0) {
             await axios.post('/create', { name: projectName, type: projectType, description: projectDescription, assignee: user })
                 .then(res => {
-                    setCreatingNewProject(false)
+                    setCreatingNewProject(true)
                     setProjectCreated(false)
                 })
                 .catch(() => {

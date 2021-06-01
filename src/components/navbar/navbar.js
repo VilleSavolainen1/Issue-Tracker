@@ -28,8 +28,12 @@ const Nav = ({ setRoute, user, setUser, setError, setCreatingNewProject, setProj
                         <Dropdown.Item>Manage Project Users</Dropdown.Item>
                     </DropdownButton>
                 </Form>
+                <div className="navbartitle">
+                    <h3>Issue Tracker</h3>
+                </div>
                 <Form inline>
                     <Navbar.Brand><DropdownButton className="userbutton" id="dropdown-basic-button" title={user}>
+                    <Dropdown.Item onClick={() => setRoute('profile')} >Profile</Dropdown.Item>
                         <Dropdown.Item onClick={()=> exit()}>Logout</Dropdown.Item>
                     </DropdownButton></Navbar.Brand>
                 </Form>
