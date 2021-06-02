@@ -126,7 +126,8 @@ function App() {
             <Home setRoute={setRoute}
               allProjects={allProjects}
               user={user}
-              setSelectedProject={setSelectedProject} /> : null}
+              setSelectedProject={setSelectedProject}
+              setProjectCreated={setProjectCreated} /> : null}
           {route === 'projects' ?
             <Projects setRoute={setRoute}
               allProjects={allProjects}

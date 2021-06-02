@@ -57,17 +57,17 @@ const Details = ({ allProjects, selectedProject, lists, setListAdded, issues, se
             })
     }
 
-    function deleteProject(name){
+    function deleteProject(name) {
         let ask = window.confirm("Delete this project?")
-        if(ask){
-            axios.post('/deleteproject', {name: name})
-        .then(res => {
-            setCreatingNewProject(true)
-            setRoute('projects')
-        })
-        .catch(() => {
-            console.log("error")
-        })
+        if (ask) {
+            axios.post('/deleteproject', { name: name })
+                .then(res => {
+                    setCreatingNewProject(true)
+                    setRoute('projects')
+                })
+                .catch(() => {
+                    console.log("error")
+                })
         }
     }
 
@@ -100,7 +100,9 @@ const Details = ({ allProjects, selectedProject, lists, setListAdded, issues, se
                         <input className="addbutton" style={{ color: '#fff', fontSize: '14px' }} type="submit" value="Update" onClick={() => onIdChange(selectedProject.id)} ></input>
                     </form>
                 </div>
-                <img className="trash" src={Trash} alt="" onClick={() => deleteProject(selectedProject.name)} ></img>
+                <div className="deleteproject">
+                    <img className="trash" src={Trash} alt="" onClick={() => deleteProject(selectedProject.name)} ></img>
+                </div>
             </div>
             <div className="boards-canvas">
                 <div className="board">

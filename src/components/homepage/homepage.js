@@ -2,7 +2,7 @@ import React from 'react';
 import './style.css';
 
 
-const Home = ({ allProjects, user, setRoute, setSelectedProject }) => {
+const Home = ({ allProjects, user, setRoute, setSelectedProject, setProjectCreated }) => {
 
 
     const userProjects = allProjects.map(project => {
@@ -29,7 +29,8 @@ const Home = ({ allProjects, user, setRoute, setSelectedProject }) => {
                             <h5>Welcome to Issue Tracker</h5>
                             <p>The navigation bar, present at the top of the page, will be the same across all the pages/screens of Issue Tracker.
                             Home, Projects and Create are the main links.
-                            These links may have sub-links to navigate other functionalities.</p>
+                            These links may have sub-links to navigate other functionalities.<br></br>
+                            Get started by creating <a href="#" onClick={() => setProjectCreated(true)}>new project</a>.</p>
                         </div>
                         <div className="boards-section-options">
                             <button className="boards-section-item">Members</button>
