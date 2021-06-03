@@ -71,7 +71,7 @@ function App() {
     if (username.length === 0 || password.length === 0) {
       setError("Give username and password!")
     } else {
-      axios.post('http://localhost:3001/signin', { username: username, password: password })
+      axios.post('/signin', { username: username, password: password })
         .then(res => {
           if (res.status === 200) {
             setRoute('home')

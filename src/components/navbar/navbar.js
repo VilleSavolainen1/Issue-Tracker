@@ -23,10 +23,6 @@ const Nav = ({ setRoute, user, setUser, setError, setCreatingNewProject, setProj
                     <DropdownButton className="navbutton" id="dropdown-basic-button" title="Create">
                         <Dropdown.Item onClick={() => {setCreatingNewProject(true); setProjectCreated(true)}} >Create new project</Dropdown.Item>
                     </DropdownButton>
-                    <DropdownButton className="navbutton" id="dropdown-basic-button" title="Manage">
-                        <Dropdown.Item>Manage Role Assignment</Dropdown.Item>
-                        <Dropdown.Item>Manage Project Users</Dropdown.Item>
-                    </DropdownButton>
                 </Form>
                 <div className="navbartitle">
                     <h3>Issue Tracker</h3>

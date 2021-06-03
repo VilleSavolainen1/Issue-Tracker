@@ -10,7 +10,7 @@ const Projects = ({ setRoute, allProjects, setSelectedProject }) => {
     const [findProject, setFindProject] = useState(allProjects)
 
 
-    const filter = (e) => {
+    const search = (e) => {
         const search = e.target.value;
         if (search !== '') {
             const results = allProjects.filter(project => {
@@ -51,7 +51,7 @@ const Projects = ({ setRoute, allProjects, setSelectedProject }) => {
             <div className="all-projects">
                 <h3 className="projects-title">All projects</h3>
                 <div className="search">
-                    <input type="search" className="input" placeholder="Search" onChange={filter} />
+                    <input type="search" className="input" placeholder="Search" onChange={search} />
                     <img src={Search} alt="" style={{ height: '24px', marginLeft: '-27px', marginTop: '4px' }} ></img>
                 </div>
                 <div className="projects-section">
