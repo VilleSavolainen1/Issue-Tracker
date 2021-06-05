@@ -16,7 +16,6 @@ const Home = ({ allProjects, user, setRoute, setSelectedProject, setProjectCreat
         return null;
     })
 
-
     return (
         <div className="home-container">
             <div className="all-boards">

@@ -23,10 +23,10 @@ const Signin = ({ username, password, setUsername, setPassword, signIn, error, s
                 <div className="signinform">
                     <form onSubmit={signIn}>
                         <dl className="formrow">
-                            <input className="form-control" placeholder="Username" value={username} name="username" onChange={onUsernameChange}></input>
+                            <input className="form-control" id="username" placeholder="Username" value={username} name="username" onChange={onUsernameChange}></input>
                         </dl>
                         <dl className="formrow">
-                            <input className="form-control" placeholder="Password" value={password} name="password" type="password" autoComplete="new-password" onChange={onPasswordChange}></input>
+                            <input className="form-control" id="password" placeholder="Password" value={password} name="password" type="password" autoComplete="new-password" onChange={onPasswordChange}></input>
                         </dl>
                         <dl className="formrow">
                             <input className="form-submit" type="submit" value="Sign in"></input>
@@ -37,7 +37,7 @@ const Signin = ({ username, password, setUsername, setPassword, signIn, error, s
                 </div>
                 <p className="demouser" onClick={(e) => { setUser('demouser'); setRoute('home')}}>Sign in as a demo user</p>
                 <p>or</p>
-                <p className="demouser" onClick={(e) => { setRoute('register'); setError('')}} >Create account</p>
+                <p className="demouser" id="create-account" onClick={(e) => { setRoute('register'); setError('')}} >Create account</p>
             </div>
         </div>
     )

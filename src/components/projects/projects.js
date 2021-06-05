@@ -22,6 +22,7 @@ const Projects = ({ setRoute, allProjects, setSelectedProject }) => {
         }
     }
 
+
     const renderProjects = findProject.map(project => {
         const ProjectStatus = () => {
             if (project.status === false) {
