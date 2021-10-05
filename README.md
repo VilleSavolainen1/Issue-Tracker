@@ -2,7 +2,7 @@
 
 I created this project to learn fullstack-development and to use it as a tool with other projects.
 
-##Technologies I used
+## Technologies I used
 
 * React
 * NodeJs
